@@ -61,5 +61,5 @@
             <version>2.8.1</version>
         </dependency>
     </dependencies>
-    <name>SBRW Launcher</name>
+    <name>SBU Launcher</name>
 </project>
