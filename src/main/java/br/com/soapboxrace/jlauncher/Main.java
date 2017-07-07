@@ -13,7 +13,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Main {
-    
+
     private static ResourceBundle Text = ResourceBundle.getBundle("locales.locale", Locale.getDefault());
 
     private static ConfigDao configDao = new ConfigDao();
@@ -21,48 +21,58 @@ public class Main {
     public static void main(String[] args) {
         ConfigVO configVO = loadConfig();
         int p = configVO.getLocale();
-        try{
-        if (p == 1){
-            Locale.setDefault(new Locale("ar"));
-        } else if(p == 2){
-            Locale.setDefault(new Locale("bn","IN"));
-        } else if(p == 3){
-            Locale.setDefault(new Locale("bg","BG"));
-        } else if(p == 4){
-            Locale.setDefault(new Locale("cs","CZ"));
-        } else if(p == 5){
-            Locale.setDefault(new Locale("de"));
-        } else if(p == 6){
-            Locale.setDefault(new Locale("en"));
-        } else if(p == 7){
-            Locale.setDefault(new Locale("es","ES"));
-        } else if(p == 8){
-            Locale.setDefault(new Locale("es","PY"));
-        } else if(p == 9){
-            Locale.setDefault(new Locale("fr"));
-        } else if(p == 10){
-            Locale.setDefault(new Locale("in","ID"));
-        } else if(p == 11){
-            Locale.setDefault(new Locale("it","IT"));
-        } else if(p == 12){
-            Locale.setDefault(new Locale("ja","JP"));
-        } else if(p == 13){
-            Locale.setDefault(new Locale("pt","BR"));
-        } else if(p == 14){
-            Locale.setDefault(new Locale("pt","PT"));
-        } else if(p == 15){
-            Locale.setDefault(new Locale("ro","RO"));
-        } else if(p == 16){
-            Locale.setDefault(new Locale("sl","SI"));
-        } else if(p == 17){
-            Locale.setDefault(new Locale("tr","TR"));
-        } else if(p == 100000) {
-            Locale.setDefault(Locale.getDefault());
+        try {
+            if (p == 1) {
+                Locale.setDefault(new Locale("ar"));
+            } else if (p == 2) {
+                Locale.setDefault(new Locale("bn", "IN"));
+            } else if (p == 3) {
+                Locale.setDefault(new Locale("bg", "BG"));
+            } else if (p == 4) {
+                Locale.setDefault(new Locale("cs", "CZ"));
+            } else if (p == 5) {
+                Locale.setDefault(new Locale("de"));
+            } else if (p == 6) {
+                Locale.setDefault(new Locale("en"));
+            } else if (p == 7) {
+                Locale.setDefault(new Locale("es", "ES"));
+            } else if (p == 8) {
+                Locale.setDefault(new Locale("es", "PY"));
+            } else if (p == 9) {
+                Locale.setDefault(new Locale("fr"));
+            } else if (p == 10) {
+                Locale.setDefault(new Locale("in", "ID"));
+            } else if (p == 11) {
+                Locale.setDefault(new Locale("it", "IT"));
+            } else if (p == 12) {
+                Locale.setDefault(new Locale("ja", "JP"));
+            } else if (p == 13) {
+                Locale.setDefault(new Locale("pl", "PL"));
+            } else if (p == 14) {
+                Locale.setDefault(new Locale("pt", "BR"));
+            } else if (p == 15) {
+                Locale.setDefault(new Locale("pt", "PT"));
+            } else if (p == 16) {
+                Locale.setDefault(new Locale("ro", "RO"));
+            } else if (p == 17) {
+                Locale.setDefault(new Locale("ru", "RU"));
+            } else if (p == 18) {
+                Locale.setDefault(new Locale("sl", "SI"));
+            } else if (p == 19) {
+                Locale.setDefault(new Locale("tr", "TR"));
+            } else if (p == 20) {
+                Locale.setDefault(new Locale("vi", "VN"));
+            } else if (p == 100000) {
+                Locale.setDefault(Locale.getDefault());
+            } else {
+                configVO.setLocale(100000);
+                Locale.setDefault(Locale.getDefault());
+            }
+        } catch (NullPointerException e) {
+
         }
-        }catch(NullPointerException e){
-        
-        }
-        new MainWindow().setVisible(true);
+        new MainWindow()
+                .setVisible(true);
     }
 
     public static ConfigVO loadConfig() {
@@ -134,7 +144,8 @@ public class Main {
         CopyFiles.copyAllFiles(pathTo);
         return Md5Files.checkModules(pathTo);
     }
-        public static void saveLocale(int locale) {
+
+    public static void saveLocale(int locale) {
         ConfigVO configVO = loadConfig();
         configVO.setLocale(locale);
         configDao.saveConfig(configVO);

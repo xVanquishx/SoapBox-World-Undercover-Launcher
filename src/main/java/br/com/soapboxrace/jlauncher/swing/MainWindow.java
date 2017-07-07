@@ -239,7 +239,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         ChangeLauncherLanguageLabel.setText(Text.getString("options.change.language"));
 
-        ChooseLauncherLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Text.getString("options.choose.language"), "اللغة العربية الفصحى","বাংলা" , "български", "čeština", "Deutsch","English" , "español(España)", "español(latín)", "Français","Bahasa Indonesia" , "italiano", "日本語", "português(Brasil)","português(Portugal)","român", "slovenščina", "Türkçe" }));
+        ChooseLauncherLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Text.getString("options.choose.language"), "اللغة العربية الفصحى","বাংলা" , "български", "čeština", "Deutsch","English" , "español(España)", "español(latín)", "Français","Bahasa Indonesia" , "italiano", "日本語", "Polski", "português(Brasil)","português(Portugal)","român", "русский", "slovenščina", "Türkçe" }));
 
         ConfirmLanguageChange.setText(Text.getString("options.okay.btn"));
         ConfirmLanguageChange.setToolTipText("");
@@ -459,24 +459,24 @@ public class MainWindow extends javax.swing.JFrame {
             setErrorMessage(Text.getString("error.server.no.recovery"));
             return;
         }
-            OkHttpClient client = new OkHttpClient();
+        OkHttpClient client = new OkHttpClient();
 
-            MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
-            RequestBody body = RequestBody.create(mediaType, Email);
-            Request request = new Request.Builder()
-                    .url(url)
-                    .post(body)
-                    .addHeader("content-type", "application/x-www-form-urlencoded")
-                    .addHeader("cache-control", "no-cache")
-                    .addHeader("postman-token", "afd1c62b-949a-54dd-b359-5f9052d3b553")
-                    .build();
-            Response response = null;
+        MediaType mediaType = MediaType.parse("application/x-www-form-urlencoded");
+        RequestBody body = RequestBody.create(mediaType, Email);
+        Request request = new Request.Builder()
+                .url(url)
+                .post(body)
+                .addHeader("content-type", "application/x-www-form-urlencoded")
+                .addHeader("cache-control", "no-cache")
+                .addHeader("postman-token", "afd1c62b-949a-54dd-b359-5f9052d3b553")
+                .build();
+        Response response = null;
         try {
             response = client.newCall(request).execute();
         } catch (IOException ex) {
-           setErrorMessage(Text.getString("error.server.no.recovery"));
+            setErrorMessage(Text.getString("error.server.no.recovery"));
         }
-        
+
         String finalResponse;
         try {
             finalResponse = response.body().string();
@@ -485,14 +485,14 @@ public class MainWindow extends javax.swing.JFrame {
             return;
         }
         String[] ErrorOrSent = finalResponse.split(":");
-        String emailsent = ErrorOrSent[1].replace("[","");
+        String emailsent = ErrorOrSent[1].replace("[", "");
         emailsent = emailsent.replace("]", "");
-        if(ErrorOrSent[0].equals("Link to reset password sent to")){
-         setMessage(Text.getString("message.forgot.password.email.sent") + emailsent);
-        }else {
-            if(ErrorOrSent[1].equals(" Invalid email!")){
+        if (ErrorOrSent[0].equals("Link to reset password sent to")) {
+            setMessage(Text.getString("message.forgot.password.email.sent") + emailsent);
+        } else {
+            if (ErrorOrSent[1].equals(" Invalid email!")) {
                 setErrorMessage(Text.getString("error.forgot.password.invalid.email"));
-            } else{
+            } else {
                 setErrorMessage(Text.getString("error.forgot.password.already.sent"));
             }
         }
@@ -532,15 +532,21 @@ public class MainWindow extends javax.swing.JFrame {
         } else if (p == 12) {
             Locale.setDefault(new Locale("ja", "JP"));
         } else if (p == 13) {
-            Locale.setDefault(new Locale("pt", "BR"));
+            Locale.setDefault(new Locale("pl", "PL"));
         } else if (p == 14) {
-            Locale.setDefault(new Locale("pt", "PT"));
+            Locale.setDefault(new Locale("pt", "BR"));
         } else if (p == 15) {
-            Locale.setDefault(new Locale("ro", "RO"));
+            Locale.setDefault(new Locale("pt", "PT"));
         } else if (p == 16) {
-            Locale.setDefault(new Locale("sl", "SI"));
+            Locale.setDefault(new Locale("ro", "RO"));
         } else if (p == 17) {
+            Locale.setDefault(new Locale("ru", "RU"));
+        } else if (p == 18) {
+            Locale.setDefault(new Locale("sl", "SI"));
+        } else if (p == 19) {
             Locale.setDefault(new Locale("tr", "TR"));
+        } else if (p == 20) {
+            Locale.setDefault(new Locale("vi", "VN"));
         }
         new MainWindow().setVisible(true);
         this.dispose();
