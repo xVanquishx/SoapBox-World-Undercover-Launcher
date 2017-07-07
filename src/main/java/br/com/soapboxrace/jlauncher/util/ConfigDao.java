@@ -27,10 +27,16 @@ public class ConfigDao {
             configVO.setServerURL(prop.getProperty("serverURL"));
             configVO.setSaveCredentials(saveCredentials);
             String Slocale = prop.getProperty("locale");
-            int locale = Integer.parseInt(Slocale);
+            int locale;
+            if(Slocale != null && !Slocale.isEmpty()){
+            locale = Integer.parseInt(Slocale);}
+            else {
+            prop.setProperty("locale", "100000");
+            Slocale = prop.getProperty("locale");
+            locale = Integer.parseInt(Slocale);
+            }
             configVO.setLocale(locale);
         } catch (IOException e) {
-            e.printStackTrace();
         }
         return configVO;
     }
