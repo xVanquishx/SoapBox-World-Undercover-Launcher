@@ -234,7 +234,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         ChangeLauncherLanguageLabel.setText(Text.getString("options.change.language"));
 
-        ChooseLauncherLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Text.getString("options.choose.language"), "اللغة العربية الفصحى","বাংলা" , "български", "čeština", "Deutsch","English" , "español(España)", "español(latín)", "Français","Bahasa Indonesia" , "italiano", "日本語", "Polski", "português(Brasil)","português(Portugal)","român", "русский", "slovenščina", "Türkçe" }));
+        ChooseLauncherLanguage.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { Text.getString("options.choose.language"), "اللغة العربية الفصحى","বাংলা" , "български", "čeština", "Deutsch","English" , "español(España)", "español(latín)", "Français","Bahasa Indonesia" , "italiano", "日本語", "Polski", "português(Brasil)","português(Portugal)","român", "русский", "slovenščina", "Türkçe", "Việt Nam" }));
 
         ConfirmLanguageChange.setText(Text.getString("options.okay.btn"));
         ConfirmLanguageChange.setToolTipText("");
@@ -275,18 +275,18 @@ public class MainWindow extends javax.swing.JFrame {
                         .addGroup(optionsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SendEmail)
                             .addComponent(ConfirmLanguageChange))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(ChooseLauncherLanguage, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
+            .addComponent(ChooseLauncherLanguage, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         optionsTabLayout.setVerticalGroup(
             optionsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(optionsTabLayout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(ChangeLauncherLanguageLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGap(1, 1, 1)
                 .addComponent(ChooseLauncherLanguage, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(ConfirmLanguageChange)
                 .addGap(13, 13, 13)
                 .addComponent(ForgotYourPassword)
