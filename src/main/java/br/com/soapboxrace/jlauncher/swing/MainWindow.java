@@ -17,13 +17,8 @@ import br.com.soapboxrace.jlauncher.Main;
 import br.com.soapboxrace.jlauncher.util.ServerList;
 import br.com.soapboxrace.jlauncher.vo.ConfigVO;
 import br.com.soapboxrace.jlauncher.vo.LoginOkVO;
-import java.io.DataOutputStream;
-import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
-import java.net.ProtocolException;
 import java.net.URL;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import okhttp3.MediaType;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -273,15 +268,15 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(optionsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(ChangeLauncherLanguageLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(optionsTabLayout.createSequentialGroup()
-                        .addComponent(ForgotYourPassword, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(ForgotYourPassword, javax.swing.GroupLayout.DEFAULT_SIZE, 344, Short.MAX_VALUE)
                         .addGap(289, 289, 289))
-                    .addComponent(ChooseLauncherLanguage, 0, 633, Short.MAX_VALUE)
                     .addComponent(EmailForPassword, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(optionsTabLayout.createSequentialGroup()
                         .addGroup(optionsTabLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(SendEmail)
                             .addComponent(ConfirmLanguageChange))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(ChooseLauncherLanguage, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         optionsTabLayout.setVerticalGroup(
@@ -414,16 +409,7 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGap(2, 2, 2))
         );
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        getContentPane().add(mainPanel, java.awt.BorderLayout.CENTER);
 
         pack();
         setLocationRelativeTo(null);
@@ -442,10 +428,6 @@ public class MainWindow extends javax.swing.JFrame {
     private void EmailForPasswordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_EmailForPasswordActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_EmailForPasswordActionPerformed
-
-    private void ForgotYourPasswordRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgotYourPasswordRedirectMouseClicked
-        loginRegisterTabbedPanel.setSelectedIndex(3);
-    }//GEN-LAST:event_ForgotYourPasswordRedirectMouseClicked
 
     private void SendEmailActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_SendEmailActionPerformed
         String URL = getUrl();
@@ -555,6 +537,10 @@ public class MainWindow extends javax.swing.JFrame {
     private void loginEmailTextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_loginEmailTextActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_loginEmailTextActionPerformed
+
+    private void ForgotYourPasswordRedirectMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ForgotYourPasswordRedirectMouseClicked
+        loginRegisterTabbedPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_ForgotYourPasswordRedirectMouseClicked
 
     private void serverAddrComboActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_serverAddrComboActionPerformed
         // TODO add your handling code here:

@@ -67,6 +67,7 @@ public class Main {
                 Locale.setDefault(Locale.getDefault());
             } else {
                 configVO.setLocale(100000);
+                saveLocale(100000);
                 Locale.setDefault(Locale.getDefault());
             }
         } catch (NullPointerException e) {

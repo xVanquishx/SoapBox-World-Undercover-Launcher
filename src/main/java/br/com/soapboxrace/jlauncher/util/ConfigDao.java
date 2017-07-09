@@ -31,7 +31,7 @@ public class ConfigDao {
             if(Slocale != null && !Slocale.isEmpty()){
             locale = Integer.parseInt(Slocale);}
             else {
-            prop.setProperty("locale", "100000");
+            prop.setProperty("locale", "900000");
             Slocale = prop.getProperty("locale");
             locale = Integer.parseInt(Slocale);
             }
